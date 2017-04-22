@@ -1,0 +1,26 @@
+.interaction {
+	position: absolute;
+}
+#dashboard-container {
+	position: relative;
+}
+#requests {
+	width: calc(50% - 20px);
+	height: calc(50% - 20px);
+	top: 30px;
+}
+#notifications {
+	width: calc(50% - 20px);
+	height: calc(40% - 20px);
+	bottom: 30px;
+}
+#history {
+	width: calc(45% - 20px);
+	height: calc(100%-40px);
+	right: 30px;
+	bottom: 30px;
+	top: 30px;
+}
+#requests,#notifications {
+	left: 30px;
+}

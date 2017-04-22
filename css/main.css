@@ -66,10 +66,7 @@ body {
 #placeholder + * {
 	clear: both;
 }
-#main-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.main-container {
 	height: 90%;
 	width: 100%;
 }
