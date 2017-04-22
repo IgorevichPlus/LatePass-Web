@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<title>Late Pass</title>
+		<link href="https://fonts.googleapis.com/css?family=Palanquin+Dark|Poppins" rel="stylesheet">
+		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" href="css/index.css" />
 	</head>
 	<body>
@@ -11,8 +13,30 @@
 				Test
 			</a>
 		</div>
-		<input type="text" placeholder="Email"><br>
-		<input type="text" placeholder="Password"><br>
-		<input type="submit" value="Submit">
+		<div id="placeholder"></div>
+		<div id="main-container">
+			<div id="main">
+				<h1 id="title">Late Pass</h1>
+				<img id="main-logo" src="img/logo.png" /><br>
+				<input type="text" placeholder="Email" class="login"><br>
+				<input type="password" placeholder="Password" class="login"><br>
+				<input type="submit" value="Log In" id="login-submit">
+				<input type="submit" value="Sign Up" id="signup-submit">
+			</div>
+		</div>
 	</body>
+	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyAoMj5MuNNgDX-pjnapiUenVPUrzBF_7no",
+	    authDomain: "late-pass.firebaseapp.com",
+	    databaseURL: "https://late-pass.firebaseio.com",
+	    projectId: "late-pass",
+	    storageBucket: "late-pass.appspot.com",
+	    messagingSenderId: "911150508329"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	<script type='text/javascript' src='js/index.js'></script>
 </html>
