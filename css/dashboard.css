@@ -4,23 +4,49 @@
 #dashboard-container {
 	position: relative;
 }
-#requests {
+#request-container {
 	width: calc(50% - 20px);
 	height: calc(50% - 20px);
 	top: 30px;
+	overflow: auto;
+	/*padding: 8px;*/
 }
-#notifications {
+.request {
+	position: relative;
+	width: 98%;
+	height: 98%;
+	margin: 1% 1% 1% 1%;
+	background-color: rgba(20, 31, 47, 0.25);
+	text-align: center;
+}
+.request h1, .request h2 {
+	margin: auto;
+}
+.request button {
+	height: 40%;
+	width: 40%;
+	border: none;
+	background: #D6E300;
+	font-size: 2em;
+	border-radius: 10px;
+	/*display: inline-block;*/
+}
+.request button:hover {
+	cursor: pointer;
+	background: #C2CE00;
+}
+#notification-container {
 	width: calc(50% - 20px);
 	height: calc(40% - 20px);
 	bottom: 30px;
 }
-#history {
+#history-container {
 	width: calc(45% - 20px);
-	height: calc(100%-40px);
+	height: calc(100% - 40px);
 	right: 30px;
 	bottom: 30px;
 	top: 30px;
 }
-#requests,#notifications {
+#request-container,#notification-container {
 	left: 30px;
 }

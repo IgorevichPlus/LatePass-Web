@@ -18,9 +18,10 @@
 		</div>
 		<div id="placeholder"></div>
 		<div id="dashboard-container" class="main-container">
-			<div id="requests" class="interaction"></div>
-			<div id="notifications" class="interaction"></div>
-			<div id="history" class="interaction"></div>
+			<div id="request-container" class="interaction">
+			</div>
+			<div id="notification-container" class="interaction"></div>
+			<div id="history-container" class="interaction"></div>
 		</div>
 	</body>
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
@@ -36,6 +37,7 @@
 	  };
 	  firebase.initializeApp(config);
 	</script>
+	<script type='text/javascript' src='js/jquery-3.1.1.min.js'></script>
 	<script type='text/javascript' src='js/main.js'></script>
 	<script type='text/javascript' src='js/dashboard.js'></script>
 </html>
