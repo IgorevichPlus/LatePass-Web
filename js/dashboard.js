@@ -1,10 +1,7 @@
 var data;
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
-		//TODO: Add stuff
-	} else window.location.replace("index.html");
-});
-var compressTxt = (text) => text.replace("\.", "").toLowerCase();
+		var compressTxt = (text) => text.replace("\.", "").toLowerCase();
 var addRequest = function(request, realName) {
 	$('#request-container').prepend("<div class=\"request\" student=\"" + request.student + "\" destination=\"" + request.to + "\">\
 		<h1>Request from " + realName + "</h1>\
@@ -53,7 +50,7 @@ var addRequest = function(request, realName) {
 }
 firebase.database().ref("teacherToEmail").once("value").then(function(tte) {
 	teacherToEmail = tte.val();
-	firebase.database().ref("users/" + toFirebaseFormat("mrfarrell@test.test") + "/incoming").once("value").then(function(ds) {
+	firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/incoming").once("value").then(function(ds) {
 		if (!ds.val()) return;
 		for (var i = 0; i < ds.val().length; i++) {
 			var curr = ds.val();
@@ -71,3 +68,18 @@ firebase.database().ref("teacherToEmail").once("value").then(function(tte) {
 		}
 	});
 });
+firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/notifications").once("value").then(function(ds) {
+	if (!ds.val()) return;
+	for (var j = 0; j < ds.val().length; j++) {
+		// var currJ = j;
+		firebase.database().ref("users/" + toFirebaseFormat(ds.val()[j].student) + "/name").once("value").then(function(currJ) {return function(name) {
+			let realName = name.val();
+			$("#notification-container").prepend("<div class=\"notification\"><h1>" + realName + " will be late.</h1><h2>" + ds.val()[currJ].reason + "-" + ds.val()[currJ].time + ", " + ds.val()[currJ].date + "</h2></div>");
+		};}(j));
+	}
+	
+});
+	} else window.location.replace("index.html");
+});
+
+
