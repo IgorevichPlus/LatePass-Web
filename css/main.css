@@ -66,6 +66,15 @@ body {
 #placeholder + * {
 	clear: both;
 }
-#error {
-	min-height: 1em;
+#main-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 90%;
+	width: 100%;
+}
+.interaction {
+	background-color: rgba(255, 255, 255, 0.25);
+	/*border-radius: 20%;*/
+	box-shadow: rgba(255, 255, 255, 0.25) 0 0 10px 10px;
 }

@@ -1,3 +1,6 @@
+firebase.auth().onAuthStateChanged(function(user) {
+	if (user) window.location.replace("dashboard.html");
+})
 var logIn = function() {
 	// alert("f");
 	let username = document.getElementById("username"), password = document.getElementById("password");
@@ -24,5 +27,5 @@ var logIn = function() {
 				break;
 		}
 		document.getElementById("error").innerHTML = content;
-	})
+	});
 }
