@@ -10,8 +10,8 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: 60vh;
-	width: 50vw;
+	height: 70vh;
+	width: 60vw;
 	background-color: rgba(255, 255, 255, 0.25);
 	/*border-radius: 20%;*/
 	box-shadow: rgba(255, 255, 255, 0.25) 0 0 10px 10px;
@@ -28,20 +28,25 @@
 	background-color: rgba(128, 128, 128, 0.25);
 }
 .login {
-	height: 10%;
+	height: 7.5%;
 	width: 60%;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 2em;
+	margin-top: 0.5%;
+	/*margin-bottom: 0.5%;*/
 }
 #login-submit, #signup-submit {
-	height: 10%;
-	width: 15%;
+	height: 7.5%;
+	width: auto;
 	border-radius: 20px;
 	background-color: white;
 	border: none;
 	border: 1px #888888 solid;
-	margin-bottom: 2.5%;
+	margin-bottom: 0.5%;
+	min-height: 1.5em;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 #login-submit {
 	box-shadow: #888888 0 0 3px 3px;
@@ -80,4 +85,7 @@ input:focus::-moz-placeholder { /* Mozilla Firefox 19+ */
 }
 input:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
    color: transparent;
+}
+#error {
+	color: red;
 }
