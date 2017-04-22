@@ -51,11 +51,16 @@
 #request-container,#notification-container {
 	left: 30px;
 }
-.notification {
+.notification,.history-item {
 	background-color: rgba(20, 31, 47, 0.25);
 	margin: 1% 1% 1% 1%;
 	height: 33.33%;
 	text-align: center;
+}
+.history-item {
+	height: auto !important;
+	padding-top: 4px;
+	padding-bottom: 4px;
 }
 .notification * {
 	margin: auto;
