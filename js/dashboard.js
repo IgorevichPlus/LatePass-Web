@@ -1,4 +1,7 @@
 var data;
+if (("Notification" in window) && Notification.permission != 'granted') {
+	Notification.requestPermission();
+}
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
 		var compressTxt = (text) => text.replace("\.", "").toLowerCase();
@@ -83,6 +86,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 				// var currJ = j;
 				firebase.database().ref("users/" + toFirebaseFormat(ds.val()[j].student) + "/name").once("value").then(function(currJ) {return function(name) {
 					let realName = name.val();
+					if (!("Notification" in window)) {
+						console.log("Notifications are not supported.");
+					} else if (Notification.permission == 'granted' && currJ == ds.val().length - 1) {
+						var notification = new Notification(realName + " will be late.");
+					}
 					$("#notification-container").prepend("<div class=\"notification\"><h1>" + realName + " will be late.</h1><h2>" + ds.val()[currJ].reason + "-" + ds.val()[currJ].time + ", " + ds.val()[currJ].date + "</h2></div>");
 				};}(j));
 			}
