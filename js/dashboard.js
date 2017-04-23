@@ -88,7 +88,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 					let realName = name.val();
 					if (!("Notification" in window)) {
 						console.log("Notifications are not supported.");
-					} else if (!notificationInited && Notification.permission == 'granted' && currJ == ds.val().length - 1) {
+					} else if (notificationInited && Notification.permission == 'granted' && currJ == ds.val().length - 1) {
 						var notification = new Notification(realName + " will be late.");
 					}
 					$("#notification-container").prepend("<div class=\"notification\"><h1>" + realName + " will be late.</h1><h2>" + ds.val()[currJ].reason + "-" + ds.val()[currJ].time + ", " + ds.val()[currJ].date + "</h2></div>");
