@@ -45,6 +45,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 					let ref = firebase.database().ref("users/" + toFirebaseFormat(request.student) + "/history");
 					ref.child(len).set(request);
 				});
+				firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/history").once("value").then(function(ds) {
+					// firebase.database().ref("users/" + toFirebaseFormat(request.student) + "/history").once("value").then(function(ds) {
+					let tmp = ds.val();
+					let len = !tmp ? 0 : tmp.length;
+					let ref = firebase.database().ref("users/" + toFirebaseFormat(request.student) + "/history");
+					ref.child(len).set(request);
+				});
 				$(this).parent().remove();
 			});
 		}
