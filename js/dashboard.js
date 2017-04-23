@@ -56,8 +56,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 			});
 		}
 		firebase.database().ref("teacherToEmail").once("value").then(function(tte) {
+			$("#request-container").empty();
 			teacherToEmail = tte.val();
-			firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/incoming").once("value").then(function(ds) {
+			firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/incoming").on("value", function(ds) {
 				if (!ds.val()) return;
 				for (var i = 0; i < ds.val().length; i++) {
 					var curr = ds.val();
@@ -75,7 +76,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 				}
 			});
 		});
-		firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/notifications").once("value").then(function(ds) {
+		firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/notifications").on("value", function(ds) {
+			$("#notification-container").empty();
 			if (!ds.val()) return;
 			for (var j = 0; j < ds.val().length; j++) {
 				// var currJ = j;
@@ -86,7 +88,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 			}
 			
 		});
-		firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/history").once("value").then(function(ds) {
+		firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/history").on("value", function(ds) {
+			$("#history-container").empty();
 			if (!ds.val()) return;
 			for (var k = 0; k < ds.val().length; k++) {
 				// var currJ = j;
