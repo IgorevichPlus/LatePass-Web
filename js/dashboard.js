@@ -49,7 +49,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 					// firebase.database().ref("users/" + toFirebaseFormat(request.student) + "/history").once("value").then(function(ds) {
 					let tmp = ds.val();
 					let len = !tmp ? 0 : tmp.length;
-					let ref = firebase.database().ref("users/" + toFirebaseFormat(request.student) + "/history");
+					let ref = firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/history");
 					ref.child(len).set(request);
 				});
 				$(this).parent().remove();
