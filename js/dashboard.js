@@ -62,6 +62,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 			$("#request-container").empty();
 			teacherToEmail = tte.val();
 			firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/incoming").on("value", function(ds) {
+				$("#request-container").empty();
 				if (!ds.val()) return;
 				for (var i = 0; i < ds.val().length; i++) {
 					var curr = ds.val();
