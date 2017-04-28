@@ -55,7 +55,8 @@
 .notification,.history-item {
 	background-color: rgba(20, 31, 47, 0.25);
 	margin: 1% 1% 1% 1%;
-	height: 33.33%;
+	/*height: 33.33%;*/
+	height: auto;
 	text-align: center;
 }
 .history-item {
