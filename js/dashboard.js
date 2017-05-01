@@ -4,6 +4,9 @@ if (("Notification" in window) && Notification.permission != 'granted') {
 }
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
+		firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/name").once("value").then(function(ds) {
+			document.getElementById("signout").innerHTML += " " + ds.val();
+		});
 		var compressTxt = (text) => text.replace("\.", "").toLowerCase();
 		var addRequest = function(request, realName) {
 			$('#request-container').prepend("<div class=\"request\" student=\"" + request.student + "\" destination=\"" + request.to + "\">\
