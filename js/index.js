@@ -1,6 +1,18 @@
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) window.location.replace("dashboard.html");
-})
+});
+$(document).ready(function() {
+	$("#username").on('keyup', function(e) {
+		if (e.keyCode == 13) {
+			document.getElementById('password').focus();
+		}
+	});
+	$("#password").on('keyup', function(e) {
+		if (e.keyCode == 13) {
+			logIn();
+		}
+	});
+});
 var logIn = function() {
 	// alert("f");
 	let username = document.getElementById("username"), password = document.getElementById("password");
