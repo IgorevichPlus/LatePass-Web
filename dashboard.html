@@ -3,20 +3,64 @@
 	<head>
 		<title>Late Pass</title>
 		<link href="https://fonts.googleapis.com/css?family=Palanquin+Dark|Poppins" rel="stylesheet">
-		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" href="css/dashboard.css" />
+		<!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="css/materialize.min.css">
+
+		<!-- Compiled and minified JavaScript -->
+		<script src="js/materialize.min.js"></script>
+
+		<script src="js/init.js"></script>
+
+		<link rel="stylesheet" href="css/custom.css">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	</head>
 	<body>
 		<div id="navbar">
 			<a href="#" id="logo-container"><img id="logo" src="img/logo.png" /></a>
-			<!-- <a href="#" id="profile" class="navlink"></a> -->
-			<a href="javascript:firebase.auth().signOut();" id="signout" class="navlink">
-				Sign Out
+			<a href="javascript:firebase.auth().signOut();" id="signout" class="navlink ">
+				Sign Out of
 			</a>
+			<!-- <a href="#" id="profile" class="navlink"></a> -->
+
 			<!-- <a href="#" class="navlink">
 				Test
 			</a>-->
 		</div>
+		<script>
+		$('.button-collapse').sideNav({
+		menuWidth: 300, // Default is 300
+		edge: 'right', // Choose the horizontal origin
+		closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+		draggable: true // Choose whether you can drag to open on touch screens
+	}
+	);
+	</script>
+
+		<ul id="slide-out" class="side-nav fixed">
+	 <li><div class="userView">
+		 <div class="background">
+			 <img src="images/office.jpg">
+		 </div>
+		 <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+		 <a class = "white-text name" id ="user_name"><span class="white-text name"></span></a>
+		 <a class = "white-text email" id = "user_email"></a>
+
+	 </div></li>
+	 <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+	 <li><a href="#!">Second Link</a></li>
+	 <li><div class="divider"></div></li>
+	 <li><a class="subheader">Subheader</a></li>
+	 <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+	 <li>
+
+		</li>
+ </ul>
+ <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+
 		<div id="placeholder"></div>
 		<div id="dashboard-container" class="main-container">
 			<div id="request-container" class="interaction">
@@ -25,6 +69,7 @@
 			</div>
 			<div id="history-container" class="interaction"></div>
 		</div>
+
 	</body>
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
 	<script>

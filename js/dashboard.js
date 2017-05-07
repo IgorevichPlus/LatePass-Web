@@ -6,7 +6,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
 		firebase.database().ref("users/" + toFirebaseFormat(firebase.auth().currentUser.email) + "/name").once("value").then(function(ds) {
 			document.getElementById("signout").innerHTML += " " + ds.val();
+			document.getElementById("user_name").innerHTML += " " + ds.val();
 		});
+		document.getElementById("user_email").innerHTML += " " + firebase.auth()currentUser.email;
 		var compressTxt = (text) => text.replace("\.", "").toLowerCase();
 		var addRequest = function(request, realName) {
 			$('#request-container').prepend("<div class=\"request\" student=\"" + request.student + "\" destination=\"" + request.to + "\">\
@@ -111,9 +113,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 					$("#history-container").prepend("<div class=\"history-item\"><h1>" + realName + " to " + data.val()[currK].to + "</h1><h2>" + (data.val()[currK].status ? "ACCEPTED" : "REJECTED") + "</h2><h2>" + data.val()[currK].reason + "-" + data.val()[currK].time + ", " + data.val()[currK].date + "</h2></div>");
 				};}(k, ds));
 			}
-			
+
 		});
 	} else window.location.replace("index.html");
 });
-
-
