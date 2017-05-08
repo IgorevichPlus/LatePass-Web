@@ -8,7 +8,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 			document.getElementById("signout").innerHTML += " " + ds.val();
 			document.getElementById("user_name").innerHTML += " " + ds.val();
 		});
-		document.getElementById("user_email").innerHTML += " " + firebase.auth()currentUser.email;
+		document.getElementById("user_email").innerHTML += " " + firebase.auth().currentUser.email;
 		var compressTxt = (text) => text.replace("\.", "").toLowerCase();
 		var addRequest = function(request, realName) {
 			$('#request-container').prepend("<div class=\"request\" student=\"" + request.student + "\" destination=\"" + request.to + "\">\
