@@ -1,3 +1,14 @@
-.userView{
-	background-color: blue;
+
+#logo {
+	max-width: 250px;
+}
+
+.interaction {
+	background-color: grey;
+	border-radius: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-bottom: 20px;
 }
