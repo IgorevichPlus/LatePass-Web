@@ -1,4 +1,7 @@
-
+.dashboard {
+	padding-left: 12vw;
+	padding-top: 50px;
+}
 #logo {
 	max-width: 250px;
 }
@@ -11,4 +14,15 @@
 	padding-left: 30px;
 	padding-right: 30px;
 	margin-bottom: 20px;
+}
+
+.profile-pic {
+	max-width: 50px;
+	max-height: 50px;
+	margin-top: 5px;
+	border-radius: 100px;
+}
+
+.card-image {
+	height: 100px;
 }
