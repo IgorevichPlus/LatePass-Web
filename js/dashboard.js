@@ -1,3 +1,4 @@
+
 var data, notificationInited = false;
 if (("Notification" in window) && Notification.permission != 'granted') {
 	Notification.requestPermission();
@@ -11,13 +12,20 @@ firebase.auth().onAuthStateChanged(function(user) {
 		document.getElementById("user_email").innerHTML += " " + firebase.auth().currentUser.email;
 		var compressTxt = (text) => text.replace("\.", "").toLowerCase();
 		var addRequest = function(request, realName) {
+			// alert('ay lmoa');
 			$('#request-container').prepend("<div class=\"request\" student=\"" + request.student + "\" destination=\"" + request.to + "\">\
-				<h1>Request from " + realName + "</h1>\
-				<h2>Headed to " + request.to + "'s Class</h2>\
-				<h3>" + request.reason + "</h3>\
+				<div class = \"card\">\
+				<div class = \"card-image blue\"\
+				<span class = \"card-title\"> Request from " + realName + "Headed to " + request.to + "</span>\
+				<a class= \"btn-floating halfway-fab waves-effect waves-light blue lighten-2\"><i class=\"small material-icons\">done</i></a>\
+				<div class = \"card-content\"\
+				<div class = \"card-content\">\
+				<p>" + request.reason + "</p>\
+				</div>\
 				<br>\
-				<button accept=true>Accept</button>\
-				<button accept=false>Reject</button>\
+				<button class = \"btn blue\" accept=true>Accept</button>\
+				<button class = \"btn blue\" accept=false>Reject</button>\
+				</div>\
 				</div>");
 			$(".request[student=\"" + request.student + "\"][destination=\"" + request.to + "\"] button").click(function() {
 				let dest = teacherToEmail[toFirebaseFormat(request.to)];
@@ -78,6 +86,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 					firebase.database().ref("users/" + toFirebaseFormat(ds.val()[i].student) + "/name").once("value").then(function(currI) {return function(name) {
 						let realName = name.val();
 						// let curr = ds.val()[i];
+						// alert('ay lmoa');
 						console.log(currI);
 						console.log(curr[currI]);
 						addRequest(curr[currI], realName);
@@ -110,7 +119,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 				firebase.database().ref("users/" + toFirebaseFormat(ds.val()[k].student) + "/name").once("value").then(function(currK, data) {return function(name) {
 					let realName = name.val();
-					$("#history-container").prepend("<div class=\"history-item\"><h1>" + realName + " to " + data.val()[currK].to + "</h1><h2>" + (data.val()[currK].status ? "ACCEPTED" : "REJECTED") + "</h2><h2>" + data.val()[currK].reason + "-" + data.val()[currK].time + ", " + data.val()[currK].date + "</h2></div>");
+					$("#history-container").prepend("<div class=\"history-item\"><div class = \"row\"><div class = \"card\"><div class = \"card-image blue\"><h1><span class = \"card-title\">" + realName + " to " + data.val()[currK].to + "</span></h1></div><h2>Status: " + (data.val()[currK].status ? "ACCEPTED" : "REJECTED") + "</h2><h2>" + data.val()[currK].reason + "-" + data.val()[currK].time + ", " + data.val()[currK].date + "</h2></div>");
 				};}(k, ds));
 			}
 
